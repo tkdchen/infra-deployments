@@ -51,4 +51,6 @@ if [ -z "$COMPONENT" ]; then
 else
   create-component $COMPONENT
 fi
-echo "Run this to show running builds: tkn pr list"
+
+console_url=$(oc whoami --show-console)
+echo "Access this to show running builds: ${console_url}/pipelines/all-namespaces/pipeline-runs"
