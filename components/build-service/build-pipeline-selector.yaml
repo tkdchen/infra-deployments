@@ -9,8 +9,8 @@ spec:
         name: docker-build
         bundle: quay.io/redhat-appstudio-tekton-catalog/pipeline-docker-build:3809d7784aa17aed2426c8f440008e83f62d64c6
       pipelineParams:
-        - name: hacbs
-          value: "true"
+        - name: skip-checks
+          value: "false"
       when:
         dockerfile: true
     - name: Java
@@ -18,8 +18,8 @@ spec:
         name: java-builder
         bundle: quay.io/redhat-appstudio-tekton-catalog/pipeline-java-builder:3809d7784aa17aed2426c8f440008e83f62d64c6
       pipelineParams:
-        - name: hacbs
-          value: "true"
+        - name: skip-checks
+          value: "false"
       when:
         language: java
     - name: NodeJS
@@ -27,7 +27,7 @@ spec:
         name: nodejs-builder
         bundle: quay.io/redhat-appstudio-tekton-catalog/pipeline-nodejs-builder:3809d7784aa17aed2426c8f440008e83f62d64c6
       pipelineParams:
-        - name: hacbs
-          value: "true"
+        - name: skip-checks
+          value: "false"
       when:
         language: nodejs,node
