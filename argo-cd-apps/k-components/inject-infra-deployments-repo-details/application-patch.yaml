@@ -4,4 +4,4 @@
   value: https://github.com/tkdchen/infra-deployments.git
 - op: replace
   path: /spec/source/targetRevision
-  value: preview-workable-bootstrap-point-20230731
+  value: preview-preview-workable-bootstrap-point-20230731
