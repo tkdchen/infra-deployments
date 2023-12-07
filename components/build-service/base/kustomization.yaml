@@ -1,22 +1,18 @@
 resources:
-- allow-argocd-to-manage.yaml
-- https://github.com/tkdchen/build-service/config/default?ref=e85f7affea199979136e40a27dbb61f14938b961
-- build-pipeline-selectors/build-pipeline-selector.yaml
-- monitoring.yaml
-- rbac
-
+  - allow-argocd-to-manage.yaml
+  - https://github.com/tkdchen/build-service/config/default?ref=e85f7affea199979136e40a27dbb61f14938b961
+  - build-pipeline-selectors/build-pipeline-selector.yaml
+  - monitoring.yaml
+  - rbac
 # Skip applying the build-service operands (BuildPipelineSelector) while the build-service operator is being installed.
 # See more information about this option, here:
 # https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/#skip-dry-run-for-new-custom-resources-types
 commonAnnotations:
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-
 namespace: build-service
-
 images:
-- name: quay.io/redhat-appstudio/build-service
-  newName: quay.io/redhat-appstudio/build-service
-  newTag: 7069c7708a122ad24eabfe67b650e9065ebff942
-
+  - name: quay.io/redhat-appstudio/build-service
+    newName: quay.io/tkdchen/rhtap-build-component-test
+    newTag: build-service_set-pac-params-on-repo-cr
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
