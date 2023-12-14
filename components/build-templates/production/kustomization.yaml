@@ -4,3 +4,4 @@ resources:
   - ../base
   - e2e-quay-push-secret.yaml
   - e2e-registryredhatio-pull-secret.yaml
+  - serviceaccount.yaml
