@@ -1,6 +1,6 @@
 resources:
 - allow-argocd-to-manage.yaml
-- https://github.com/redhat-appstudio/image-controller/config/default?ref=8208ff372b880773b911062dc828f050e45c5312
+- https://github.com/tkdchen/image-controller/config/default?ref=18408e7e96b89bb2c15aac0aefe251e28b56ab67
 - rbac
 
 images:
