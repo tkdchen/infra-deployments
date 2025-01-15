@@ -1,26 +1,21 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- ../../base
-- ../../base/external-secrets
-- https://github.com/konflux-ci/mintmaker/config/default?ref=7f0cd9e10e0ede8e2dcce8e5cbaa3647b4548cc4
-- https://github.com/konflux-ci/mintmaker/config/renovate?ref=7f0cd9e10e0ede8e2dcce8e5cbaa3647b4548cc4
-
+  - ../../base
+  - ../../base/external-secrets
+  - https://github.com/tkdchen/mintmaker/config/default?ref=de3d851e9aa4243c33dc3946027409d9fe1ad076
+  - https://github.com/tkdchen/mintmaker/config/renovate?ref=de3d851e9aa4243c33dc3946027409d9fe1ad076
 namespace: mintmaker
-
 images:
-- name: quay.io/konflux-ci/mintmaker
-  newName: quay.io/konflux-ci/mintmaker
-  newTag: 7f0cd9e10e0ede8e2dcce8e5cbaa3647b4548cc4
-- name: quay.io/konflux-ci/mintmaker-renovate-image
-  newName: quay.io/konflux-ci/mintmaker-renovate-image
-  newTag: 083371d43e1eebd093592ac7d87762f8bae9197b
-
+  - name: quay.io/mytestworkload/mintmaker
+    newName: quay.io/mytestworkload/mintmaker
+    newTag: de3d851e9aa4243c33dc3946027409d9fe1ad076-2025-01-16T10_00_47-08_00
+  - name: quay.io/mytestworkload/mintmaker-renovate-image
+    newName: quay.io/mytestworkload/mintmaker-renovate-image
+    newTag: f6006e761902d8c537c2dc9c73ce71b3ea6140fd-2025-01-16T10_00_47-08_00
 commonAnnotations:
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-
 patches:
   - path: manager_patch.yaml
-
 configurations:
-- kustomizeconfig.yaml
+  - kustomizeconfig.yaml
