@@ -2,18 +2,14 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../base
-  - https://github.com/konflux-ci/mintmaker/config/default?ref=a008fa17b2513a3a180e93235cb0f9daaa85a2f2
-  - https://github.com/konflux-ci/mintmaker/config/renovate?ref=a008fa17b2513a3a180e93235cb0f9daaa85a2f2
-
+  - https://github.com/tkdchen/mintmaker/config/default?ref=52a7c8bf7bbb2adcbd2ea9b8cc80cf86d12730f8
+  - https://github.com/tkdchen/mintmaker/config/default?ref=52a7c8bf7bbb2adcbd2ea9b8cc80cf86d12730f8
 images:
   - name: quay.io/konflux-ci/mintmaker
-    newName: quay.io/konflux-ci/mintmaker
-    newTag: a008fa17b2513a3a180e93235cb0f9daaa85a2f2
-
+    newName: quay.io/mytestworkload/mintmaker
+    newTag: demo
 namespace: mintmaker
-
 commonAnnotations:
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-
 components:
   - ../components/rh-certs
